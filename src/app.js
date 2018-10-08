@@ -43,7 +43,7 @@
         let pageLink = document.createElement('a');
         pageLink.setAttribute('id', i);
         pageLink.innerHTML = `page ${i + 1}`;
-        pageLink.addEventListener('click', () => { this.changePage(this.photos, i, null)})
+        pageLink.addEventListener('click', () => {this.changePage(this.photos, i, null)})
         sideNav.appendChild(pageLink);
       };
       let arrowBottom = document.createElement('a');
@@ -59,7 +59,7 @@
       outerGallery.setAttribute('class', 'gallery-container-outer');
       main.appendChild(outerGallery);
       this.body.appendChild(main);
-    }
+    };
 
     highlightCurrentPage(num){
       let pageLinks = document.querySelectorAll('a');
@@ -72,7 +72,6 @@
         };
       });
     };
-
 
     paginatePhotos(photos, page=0){
       let gallery = document.getElementsByClassName('gallery-container-outer')[0];
@@ -91,7 +90,6 @@
             let img_url =  `https://farm${farmID}.staticflickr.com/${serverID}/${id}_${secret}.jpg`;
             let innerGallery = document.getElementsByClassName('gallery-container-inner')[0];
             new Photo({id, secret, img_url, innerGallery});
-
       });
     };
 
@@ -109,5 +107,4 @@
       this.currentPage = num;
       this.highlightCurrentPage(this.currentPage);
     };
-
   };
