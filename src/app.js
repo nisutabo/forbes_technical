@@ -3,25 +3,25 @@
       this.body = document.getElementsByTagName('body')[0];
       this.currentPage = 0;
       this.retrievePhotos();
-    }
+    };
 
     retrievePhotos(){
       fetch(`https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6a7c5fe0c429058029ced3996f799f69&user_id=153740145%40N05&min_upload_date=10-4-2018&format=json&nojsoncallback=1&auth_token=72157698977978662-a1bcb9a83a6e08c0&api_sig=7351bff16bcd6f0a1e165ea75935ed1d`)
         .then(res => res.json())
         .then(json => this.dividePhotos(json.photos.photo));
-    }
+    };
 
     dividePhotos(photos){
         let numberOfPages =  Math.ceil(photos.length / 10);
         let result = [];
         while (photos.length){
           result.push(photos.splice(0, 10))
-        }
+        };
         this.photos = result;
         this.setTemplate(numberOfPages);
         this.highlightCurrentPage(this.currentPage);
         this.paginatePhotos(result);
-    }
+    };
 
     setTemplate(num) {
       let main = document.createElement('div');
@@ -102,7 +102,7 @@
         num += 1;
       } else if (((direction === 'down') && num === photos.length - 1)){
         num = 0;
-      }
+      };
       this.paginatePhotos(photos, num);
       this.currentPage = num;
       this.highlightCurrentPage(this.currentPage);
