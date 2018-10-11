@@ -6,7 +6,7 @@
     };
 
     retrievePhotos(){
-      fetch(`https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6a7c5fe0c429058029ced3996f799f69&user_id=153740145%40N05&min_upload_date=10-4-2018&format=json&nojsoncallback=1&auth_token=72157698977978662-a1bcb9a83a6e08c0&api_sig=7351bff16bcd6f0a1e165ea75935ed1d`)
+      fetch(`https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=7d5d68ca73019591c87cb5e7dbe2bc31&user_id=153740145%40N05&min_upload_date=10-4-2018&format=json&nojsoncallback=1&auth_token=72157702286696685-2a7e393ea20cbfcd&api_sig=7fc0c31967761e6893789b43f33d61b7`)
         .then(res => res.json())
         .then(json => this.dividePhotos(json.photos.photo));
     };
